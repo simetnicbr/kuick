@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: kong
+    konghq.com/methods: "OPTIONS,GET"
+    konghq.com/preserve-host: "false"
+    konghq.com/strip-path: "true"
+    konghq.com/plugins: kuick-ip-restriction-plugin
+  name: kuick
+  namespace: default
+spec:
+  rules:
+    - host: dev.example.com
+      http:
+        paths:
+        - backend:
+            serviceName: kuick
+            servicePort: 8080
+          path: /kuick
+  tls:
+    - hosts:
+        - dev.example.com
+      secretName: example.com

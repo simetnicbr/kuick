@@ -1,0 +1,11 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: kuick-ip-restriction-plugin
+  namespace: default
+plugin: ip-restriction
+enabled: true
+config:
+  allow: 
+    - 10.0.0.0/8
+    - fde1:efdc:34f2:18fe::/64

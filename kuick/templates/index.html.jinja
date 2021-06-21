@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% if is_test_mode %}(TEST MODE) kuick{% else %}kuick{% endif %}</title>
+    <link rel="icon" href="{{ x_forwarded_prefix }}{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ x_forwarded_prefix }}{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript">
+      const API_V1_INGRESSES_URL = "{{ x_forwarded_prefix }}{{ url_for('api_v1_ingresses') }}";
+      const KONG_PLUGINS_IMAGES_DIR = "{{ x_forwarded_prefix }}{{ url_for('static', filename='images/kong_plugins/') }}";
+      const IS_TEST_MODE = {{ is_test_mode | tojson }};
+      const KONG_INGRESSES_DATA = {{ kong_ingresses | tojson }};
+    </script>
+    <script type="module" src="{{ x_forwarded_prefix }}{{ url_for('static', filename='js/main.js') }}"></script>
+  </head>
+  <body>
+    <div id="app">
+  </body>
+</html>

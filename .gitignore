@@ -1,0 +1,8 @@
+/.idea
+/.vscode
+/dist/
+/node_modules/
+/venv/
+
+/kuick/static/js/
+/kuick/static/css/

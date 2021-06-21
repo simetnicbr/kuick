@@ -1,0 +1,5 @@
+flake8==3.9.2
+Flask==2.0.1
+gevent==21.1.2
+kubernetes==17.17.0
+uWSGI==2.0.19.1
