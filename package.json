@@ -8,7 +8,7 @@
   },
   "name": "kuick",
   "description": "The Kong UI for Ingress Controller in Kubernetes",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.14.6",
