@@ -4,7 +4,7 @@
 
 ## Status
 
-This project is still in very early development, and currently only supports a few k8s API objects (tested on v1.17.17). As such, it may outright not work on your Kuberentes cluster. Pull requests and testing are welcome!
+This project is still in very early development, and currently only supports listing a few k8s API objects (tested on v1.17.17). As such, it may outright not work on your Kuberentes cluster or for your use cases. Pull requests and testing are welcome!
 
 ## Installation
 
@@ -81,7 +81,7 @@ spec:
       serviceAccountName: kuick
       containers:
         - name: kuick
-          image: ghcr.io/simetnicbr/kuick:latest  # NOTE: Public images are not available yet! Use your private registry.
+          image: ghcr.io/simetnicbr/kuick:latest
           imagePullPolicy: Always
           env:
             - name: PORT
@@ -98,7 +98,7 @@ spec:
               protocol: TCP
 ```
 
-1. (optional) Set up a Service, Ingress, and KongPlugins (such as `ip-restriction`) to remotely access the web interface:
+4. (optional) Set up a Service, Ingress, and KongPlugins (such as `ip-restriction`) to remotely access the web interface:
 
 ```yml
 # kuick-service.yaml
@@ -162,7 +162,7 @@ You can build and test kuick locally using Docker:
 
 ```sh
 docker build -t kuick-dev .
-docker run --rm -e TEST_MODE=true -p 8080:8080 --name kuick kuick-dev
+docker run -d -e TEST_MODE=true -e PORT=8080 -p 8080:8080 --name kuick-dev kuick-dev
 ```
 
 ## License
